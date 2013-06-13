@@ -1,31 +1,40 @@
-<h1>Blog list</h1>
+<head>
+  <h1>Blog</h1>
+  <div align = "center">
+    <%= link_to 'New', new_post_path, class: "btn btn-small btn-success"%>
+  </div>
+</head>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Title</th>
-      <th>Content</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<body>
 
-  <tbody>
-    <% @posts.each do |post| %>
+    <% @posts.order("created_at DESC").each do |post| %>
       <tr>
-        <td><%= post.name %></td>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+          <td>
+            <!--<h3><%= post.title %></h3>-->
+            <h3><%= link_to post.title, post %></h3> 
+          </td>
+
+          <td>
+            <small> 
+              -- <%= post.name %> Create at <%= post.created_at.to_s(:db) %>
+             </small>
+          </td>
+          <br>
+          <br>
+
+          <td><%= simple_format(post.content)%></td>
+        
+        
+        <br>
+
+        <div align = "right">        
+          <td><%= link_to 'Show', post , class: "btn btn-mini" %></td>
+          <td><%= link_to 'Edit', edit_post_path(post), class: "btn btn-mini" %></td>
+          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-mini"%></td>
+        </div>
+        <br>
       </tr>
     <% end %>
-  </tbody>
-</table>
+<body>
 
-<br>
-
-<%= link_to 'New Post', new_post_path %>

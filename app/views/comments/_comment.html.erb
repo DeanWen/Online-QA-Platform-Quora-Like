@@ -5,11 +5,11 @@
  
 <p>
   <b>Comment:</b>
-  <%= comment.body %>
+  <%= simple_format(comment.body)%>
 </p>
  
-<p>
-  <%= link_to 'Destroy Comment', [comment.post, comment],
+<div align="right">
+  <%= link_to 'Destroy', [comment.post, comment],
                :confirm => 'Are you sure?',
-               :method => :delete %>
-</p>
+               :method => :delete ,class: "btn btn-mini btn-danger"%>
+</div>

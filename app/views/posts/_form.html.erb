@@ -12,19 +12,23 @@
     </div>
   <% end %>
 
+
   <div class="field">
-    <%= post_form.label :name %><br />
-    <%= post_form.text_field :name %>
-  </div>
-  <div class="field">
-    <%= post_form.label :title %><br />
-    <%= post_form.text_field :title %>
+      <%= post_form.label :title %><br />
+      <%= post_form.text_field :title%>
   </div>
   <div class="field">
     <%= post_form.label :content %><br />
-    <%= post_form.text_area :content %>
+      <p>
+    <%= post_form.text_area :content,:cols => "150", :rows => "20"%>
+    </p>
   </div>
-  <h2>Tags</h2>
+
+  <div class="field">
+    <%= post_form.label :Author %><br />
+    <%= post_form.text_field :name %>
+  </div>
+
   <%= render :partial => "tags/form", :locals => {:form => post_form} %>
   <div class="actions">
     <%= post_form.submit %>
