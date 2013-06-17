@@ -1,10 +1,14 @@
 <%= form_for([@post, @post.comments.build]) do |f| %>
   <div class="field">
-    <%= f.label :commenter %>
+    <%= f.label :commenter,"Name:" %>
+    <% if session[:user_id]%>
+    <b><%= User.find(session[:user_id]).name%></b>
+    <%else%>
     <%= f.text_field :commenter %>
+    <%end%>
   </div>
   <div class="field">
-    <%= f.label :body %>
+    <%= f.label :body,"Comment:" %>
     <%= f.text_area :body,rows:5%>
   </div>
   <div class="actions">

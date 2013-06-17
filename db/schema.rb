@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130606193848) do
+ActiveRecord::Schema.define(version: 20130617151044) do
 
   create_table "comments", force: true do |t|
     t.string   "commenter"
@@ -48,5 +48,12 @@ ActiveRecord::Schema.define(version: 20130606193848) do
   end
 
   add_index "tags", ["post_id"], name: "index_tags_on_post_id"
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

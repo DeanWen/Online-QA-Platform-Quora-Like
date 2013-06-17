@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Use ActiveModel has_secure_password
+gem 'bcrypt-ruby', '~> 3.0.0'
 # bootstrap easy stylesheet
 gem 'bootstrap-sass', '2.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

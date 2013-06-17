@@ -27,12 +27,13 @@
         
         
         <br>
-
-        <div align = "right">        
-          <td><%= link_to 'Show', post , class: "btn btn-mini" %></td>
-          <td><%= link_to 'Edit', edit_post_path(post), class: "btn btn-mini" %></td>
-          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-mini"%></td>
-        </div>
+        <%if session[:user_id] && User.find(session[:user_id]).name == "dianwen"%>
+          <div align = "right">        
+            <td><%= link_to 'Show', post , class: "btn btn-mini" %></td>
+            <td><%= link_to 'Edit', edit_post_path(post), class: "btn btn-mini" %></td>
+            <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-mini"%></td>
+          </div>
+        <%end%>
         <br>
       </tr>
     <% end %>
