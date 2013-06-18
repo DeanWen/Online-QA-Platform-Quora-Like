@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	include Rails.application.routes.url_helpers
+	
 	after_destroy :ensure_an_admin_remains
 	
 	validate :name, presence: true, uniqueness: true
@@ -6,6 +8,10 @@ class User < ActiveRecord::Base
 
   def to_s
   	name
+  end
+
+  def base_url
+    user_path(self)
   end
 
   private
