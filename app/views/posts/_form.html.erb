@@ -26,7 +26,11 @@
 
   <div class="field">
     <%= post_form.label :Author %><br />
-    <%= post_form.text_field :name %>
+    <% if session[:user_id]%>
+    <b><%= current_user.name%></b>
+    <%else%>
+    <%= post_form.text_area :name %>
+    <%end%>
   </div>
 
   <%= render :partial => "tags/form", :locals => {:form => post_form} %>

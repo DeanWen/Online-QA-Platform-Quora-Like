@@ -17,23 +17,25 @@
 
           <td>
             <small> 
-              -- <%= post.name %> Create at <%= post.created_at.to_s(:db) %>
+              -- <b><%= post.name %></b> 
+              Create at <%= post.created_at.to_s(:db) %>
              </small>
           </td>
           <br>
           <br>
-
+          <div id="pcontent">
           <td><%= simple_format(post.content)%></td>
-        
+          </div>
+          
         
         <br>
-        <%if session[:user_id] && User.find(session[:user_id]).name == "dianwen"%>
-          <div align = "right">        
-            <td><%= link_to 'Show', post , class: "btn btn-mini" %></td>
-            <td><%= link_to 'Edit', edit_post_path(post), class: "btn btn-mini" %></td>
-            <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-mini"%></td>
-          </div>
-        <%end%>
+        <div align = "right">
+            <%= link_to 'Read More...', post , class: "btn btn-mini" %> 
+            <%if current_user == post.user %>       
+              <td><%= link_to 'Edit', edit_post_path(post), class: "btn btn-mini" %></td>
+              <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-mini"%></td>
+            <%end%>
+        </div>
         <br>
       </tr>
     <% end %>

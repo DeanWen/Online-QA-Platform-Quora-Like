@@ -1,10 +1,13 @@
 class User < ActiveRecord::Base
+  
 	include Rails.application.routes.url_helpers
-	
+
 	after_destroy :ensure_an_admin_remains
-	
-	validate :name, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true
   	has_secure_password
+  	
+  	has_many :posts
+  	has_many :comments
 
   def to_s
   	name

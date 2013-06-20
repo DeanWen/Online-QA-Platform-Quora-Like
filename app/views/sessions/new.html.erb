@@ -1,19 +1,21 @@
-<div>
+<div align="center">
 	<%= form_tag do %>
-	<fieldset>
+	<fieldset class="incline">
 		<legend>Please Log In</legend>
-		<div>
-			<%= label_tag :name,"Name:" %>
-			<%= text_field_tag :name,params[:name]%>
-		</div>
-		<div>
-			<%= label_tag :password, "password:" %>
-			<%= password_field_tag :password, params[:password]%>
-		</div>
-		<div>
-			<%= submit_tag "Login" %> 
-		</div>
+		<table>
+			<tr>
+				<td><%= label_tag :name,"Name:" %></td>
+				<td><%= text_field_tag :name,params[:name]%></td>
+			</tr>
+			<tr>
+				<td><%= label_tag :password, "password:" %></td>
+				<td><%= password_field_tag :password, params[:password]%></td>
+			</tr>
+	</table>
+	<div>
+		<%= submit_tag "Login" %>
+	</div>
 	</fieldset>
 	<% end %>
-	<p>Don't have the account ? Let's  <%= link_to 'register', new_user_path %> one</p>
+	<p>Don't have the account ? Let's  <%= link_to 'Sign up', new_user_path %></p>
 </div>

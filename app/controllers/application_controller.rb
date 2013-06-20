@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authorize
+  before_action :authorize,:current_user
   protect_from_forgery
  
   private
@@ -9,8 +9,12 @@ class ApplicationController < ActionController::Base
   #   end
   # end
 
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id])
+  end
+
   def authorize
-  	unless User.find_by(id: session[:user_id])
+  	unless current_user
   		redirect_to login_url, notice: "Please log in" 		
   	end
   end 

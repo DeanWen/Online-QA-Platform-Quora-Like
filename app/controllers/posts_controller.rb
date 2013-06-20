@@ -87,8 +87,8 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:name, :title, :content,:tags_attributes=>[:name,:id,:_destroy])
-      #params.require(:tags_attributes).permit!
+      params[:post].merge!(:name => User.find(session[:user_id]).to_s, :user_id => session[:user_id])
+      params.require(:post).permit(:name, :title, :user_id, :content,:tags_attributes=>[:name,:id,:_destroy])
     end
 
 end

@@ -6,6 +6,12 @@
   <%= @post.updated_at.to_s(:db) %>
   <br>
 </p>
+
+<div align ="center">
+  <%=link_to "Previous",@post.previous%> |
+  <%= link_to 'Back to List', posts_path %> |
+  <%=link_to "Next",@post.next%>
+</div>
  
 <p>
   <%= simple_format(@post.content) %>
@@ -16,11 +22,10 @@
   	<%= join_tags @post %>
   </b>
 </p>
-<%if session[:user_id] && User.find(session[:user_id]).name == "dianwen"%>
+<%if current_user == @post.user %>
 <div align="right"> 
 <%= link_to 'Delete Post', @post, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Edit Post', edit_post_path(@post) %> |
-<%= link_to 'Back to List', posts_path %> 
+<%= link_to 'Edit Post', edit_post_path(@post) %> 
 </div>
 <%end%>
 <br>

@@ -11,8 +11,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-  	@post = Post.find(params[:post_id])
-  	@comment=Comment.find(params[:id])
+    @post = Post.find(params[:post_id])
+  	@comment = current_user.comments.find(params[:id])
     @comment.destroy
 
     respond_to do |format|
@@ -24,8 +24,8 @@ class CommentsController < ApplicationController
   private
 
   def get_username_and_permit_comment_params
-    params[:comment].merge!(:commenter => User.find(session[:user_id]).to_s)
-  	params[:comment].permit(:commenter, :body)
+    params[:comment].merge!(:commenter => User.find(session[:user_id]).to_s,:user_id => session[:user_id])
+  	params[:comment].permit(:commenter, :body, :user_id)
   end
 
 end

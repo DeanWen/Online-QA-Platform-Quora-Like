@@ -8,10 +8,11 @@
   <%= simple_format(comment.body)%>
 </p>
  
-<%if session[:user_id] && User.find(session[:user_id]).name == "dianwen"%>
+
+<% if comment.user == current_user %>
 <div align="right">
   <%= link_to 'Destroy', [comment.post, comment],
                :confirm => 'Are you sure?',
-               :method => :delete ,class: "btn btn-mini btn-danger"%>
+               :method => :delete ,class: "btn btn-mini"%>
 </div>
-<%end%>
+<% end %>
