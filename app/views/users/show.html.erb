@@ -1,32 +1,14 @@
-<h1>Profile</h1>
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @user.name %>
-</p>
-<p>
-  <strong>Age:</strong>
-  <%= @user.name %>
-</p>
-<p>
-  <strong>School:</strong>
-  <%= @user.name %>
-</p>
-<p>
-  <strong>Telephone:</strong>
-  <%= @user.name %>
-</p>
-<p>
-  <strong>Address:</strong>
-  <%= @user.name %>
-</p>
-
+<div align="center">
+<legend>
+<strong>Profile</strong>
+</legend>
+<!--<p id="notice"><%= notice %></p>-->
+<table>
+  <tr>
+    <td><strong>Name:</strong></td>
+    <td><%= @user.name %></td>
+  </tr>
+  <table>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', posts_path %>
+</div>
