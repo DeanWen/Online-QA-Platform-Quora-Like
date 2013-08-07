@@ -13,8 +13,8 @@
   <% end %>
 
 
-  <div class="field">
-      <%= post_form.label :title %><br />
+  <div>
+      <%= post_form.label :title %>
       <%= post_form.text_field :title%>
   </div>
   <div class="field">
@@ -24,7 +24,7 @@
     </p>
   </div>
 
-  <div class="field">
+  <div class="field incline">
     <%= post_form.label :Author %><br />
     <% if session[:user_id]%>
     <b><%= current_user.name%></b>

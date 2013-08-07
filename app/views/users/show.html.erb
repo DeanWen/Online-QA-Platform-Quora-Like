@@ -8,7 +8,24 @@
     <td><strong>Name:</strong></td>
     <td><%= @user.name %></td>
   </tr>
+    <tr>
+    <td><strong>Gender:</strong></td>
+    <td><%= @user.gender %></td>
+  </tr>
+    <tr>
+    <td><strong>School</strong></td>
+    <td><%= @user.school %></td>
+  </tr>
+    <tr>
+    <td><strong>Position:</strong></td>
+    <td><%= @user.position %></td>
+  </tr>
+  <tr>
+    <td><strong>Interest:</strong></td>
+    <td><%= @user.interest %></td>
+  </tr>
   <table>
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', posts_path %>
+
+<%= link_to 'Edit', edit_user_path(@user), class:"btn btn-small" %> |
+<%= link_to 'Back', posts_path, class:"btn btn-small" %>
 </div>
