@@ -10,46 +10,33 @@
       </ul>
     </div>
   <% end %>
-  <div>
+
+  <div align="center">
     <table>
       <tr>
         <td><%= f.label :name %></td>
-        <%if current_user%>
-          <td><b><%= @user.name %></b></td>
-        <%end%>
-        <%if !current_user%> 
-          <td><%= f.text_field :name %></td>
-        <%end%>
+        <td><%= f.label @user.name %></td>
       </tr>
     <tr>
-        <td><%= f.label :password %></td>
-        <td><%= f.password_field :password %></td>
-    </tr>
-    <tr>
-        <td><%= f.label :password_confirmation %></td>
-        <td><%= f.password_field :password_confirmation %></td>
-    </tr>
-    <tr>
         <td><%= f.label :gender %></td>
-        <td><%= f.text_field :gender %></td>
+        <td><%= f.password_field :gender %></td>
     </tr>
     <tr>
         <td><%= f.label :school %></td>
-        <td><%= f.text_field :school %></td>
+        <td><%= f.password_field :school %></td>
     </tr>
     <tr>
         <td><%= f.label :position %></td>
-        <td><%= f.text_field :position %></td>
+        <td><%= f.password_field :position %></td>
     </tr>
     <tr>
         <td><%= f.label :interest %></td>
-        <td><%= f.text_field :interest %></td>
+        <td><%= f.password_field :interest %></td>
     </tr>
     </table>
   <br>
   <div class="actions">
-    <%= f.submit class:"btn btn-small"%>
-    <%= link_to "Cancel",@user, class:"btn btn-small"%>
+    <%= f.submit %>
   </div>
 </div>
 <% end %>

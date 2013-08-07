@@ -1,7 +1,12 @@
 <head>
-  <h1>Blog</h1>
-  <div align = "center">
+  <div align="center">
+    <legend>Disscusion Board</legend>
+  </div>
+
+  <div align = "center">    
+    <%= link_to 'My Post',user_posts_path(current_user), class: "btn btn-small btn-warning"%>
     <%= link_to 'New', new_post_path, class: "btn btn-small btn-success"%>
+    <%= link_to 'All Post',posts_path, class: "btn btn-small btn-info"%>
   </div>
 </head>
 
@@ -30,10 +35,10 @@
         
         <br>
         <div align = "right">
-            <%= link_to 'Read More...', post , class: "btn btn-mini" %> 
+            <%= link_to 'Read More...', post , class: "btn btn-mini btn-info" %> 
             <%if current_user == post.user %>       
-              <td><%= link_to 'Edit', edit_post_path(post), class: "btn btn-mini" %></td>
-              <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-mini"%></td>
+              <td><%= link_to 'Edit', edit_post_path(post), class: "btn btn-mini btn-warning" %></td>
+              <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-mini btn-danger"%></td>
             <%end%>
         </div>
         <br>

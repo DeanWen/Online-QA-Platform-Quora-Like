@@ -12,7 +12,9 @@ Blog::Application.routes.draw do
   get "sessions/create"
   get "sessions/destroy"
   
-  resources :users
+  resources :users do
+    resources :posts, :only => [:index]
+  end
 
   resources :posts do
     resources :comments

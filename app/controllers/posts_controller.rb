@@ -3,10 +3,12 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   #before_filter :authenticate, :except => [:index, :show] 
   
-  # GET /posts
-  # GET /posts.json
+  
+  # /posts          params[:user_id] => nil
+  # /users/10/posts params[:user_id] => 10
+
   def index
-    @posts = Post.all
+    @posts = Post.user_id(params[:user_id])
     respond_to do |format|
       format.html # index.html.erb
       format.xml {render :xml => @posts}

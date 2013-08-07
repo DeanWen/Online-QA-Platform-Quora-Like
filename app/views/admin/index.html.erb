@@ -1,16 +1,17 @@
-  <h1>Listing users</h1>
+  <h1>User List</h1>
 
   <% if notice %>
   <p id="notice"><%= notice %></p> 
   <% end %>
 
-  <table>
+  <table class="table">
     <thead>
       <tr>
         <th>Name</th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>Gender</th>
+        <th>School</th>
+        <th>Position</th>
+        <th>Interest</th>
       </tr>
     </thead>
 
@@ -18,9 +19,13 @@
       <% @users.each do |user| %>
         <tr>
           <td><%= user.name %></td>
-          <td><%= link_to 'Show', user %></td>
-          <td><%= link_to 'Edit', edit_user_path(user) %></td>
-          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= user.gender %></td>
+          <td><%= user.school %></td>
+          <td><%= user.position %></td>
+          <td><%= user.interest %></td>
+          <td><%= link_to 'Show', user ,class: "btn btn-small btn-info "%></td>
+          <td><%= link_to 'Edit', edit_user_path(user), class: "btn btn-small btn-warning " %></td>
+          <td><%= link_to 'Destroy', user,class: "btn btn-small btn-danger ", method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -28,4 +33,4 @@
 
   <br>
 
-  <%= link_to 'New User', new_user_path %>
+  <!--<%= link_to 'New User', new_user_path %>-->
