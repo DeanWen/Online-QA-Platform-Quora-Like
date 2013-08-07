@@ -9,6 +9,10 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :tags, :allow_destroy => :true,
     :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
+  scope :user_id, Proc.new { |user_id|
+    where(:user_id => user_id) if user_id.to_i.nonzero?
+  }
+
 def previous
 	Post.limit(1).order("id ASC").where("id > ?",id).first
 end
